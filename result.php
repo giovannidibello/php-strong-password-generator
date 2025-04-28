@@ -36,6 +36,34 @@ if (!empty($_POST["password"]) && intval($_POST["password"]) > 0) {
     <!-- importo bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <title>Risultato</title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+        }
+
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+        }
+
+        h1,
+        h2 {
+            color: #2f4f4f;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            border-radius: 20px;
+            padding: 10px 20px;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+    </style>
 </head>
 
 <body>
