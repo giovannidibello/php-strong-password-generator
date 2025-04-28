@@ -16,30 +16,11 @@
 // Milestone 4 (BONUS)
 // Gestire ulteriori parametri nel form per le password, dando la possibilità all’utente di specificare quali set di caratteri possono essere ammessi nella password da generare, tra lettere maiuscole, lettere minuscole, numeri e simboli.
 
+?>
 
-// salvo la lunghezza del valore di input del form
-$lenghtpass = ($_GET["password"]);
+<?php
 
-// stringa per creazione password
-$string = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789";
-
-// funzione per generare password casuale
-function createPassword($string, $lenghtpass)
-{
-
-    $password = "";
-
-    // ciclo fino alla lunghezza dei caratteri desiderati
-    for ($i = 0; $i < $lenghtpass; $i++) {
-
-        // concateno i caratteri in modo casuale
-        $password .= $string[rand(0, strlen($string) - 1)];
-    }
-
-    return $password;
-}
-
-$password = createPassword($string, $lenghtpass);
+require_once "./functions.php";
 
 ?>
 
