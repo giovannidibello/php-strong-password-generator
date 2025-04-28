@@ -52,6 +52,21 @@ require_once "./functions.php";
                     <input type="number" name="password" id="password">
                 </div>
 
+                <div class="d-flex justify-content-center align-items-center gap-5 mb-3">
+                    <div class="d-flex gap-3 align-items-center">
+                        <label for="letters">Lettere</label>
+                        <input type="checkbox" class="form-check-input" name="letters" id="letters">
+                    </div>
+                    <div class="d-flex gap-3 align-items-center">
+                        <label for="numbers">Numeri</label>
+                        <input type="checkbox" class="form-check-input" name="numbers" id="numbers">
+                    </div>
+                    <div class="d-flex gap-3 align-items-center">
+                        <label for="symbols">Simboli</label>
+                        <input type="checkbox" class="form-check-input" name="symbols" id="symbols">
+                    </div>
+                </div>
+
                 <div class="d-flex justify-content-center">
                     <button class="btn btn-primary btn-sm" type="submit">Cerca</button>
                 </div>

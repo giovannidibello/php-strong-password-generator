@@ -9,7 +9,13 @@ require_once "./functions.php";
 // se il form ha inviato i dati e non sono ne vuoti e ne minori di 0
 if (!empty($_POST["password"]) && intval($_POST["password"]) > 0) {
     $lenghtpass = intval($_POST["password"]);
-    $password = createPassword($lenghtpass);
+
+    // verifica se i checkbox sono selezionati
+    $includeLetters = isset($_POST["letters"]);
+    $includeNumbers = isset($_POST["numbers"]);
+    $includeSymbols = isset($_POST["symbols"]);
+    // crea la password
+    $password = createPassword($lenghtpass, $includeLetters, $includeNumbers, $includeSymbols);
 
     // salvo la password nella sessione
     $_SESSION["password"] = $password;
