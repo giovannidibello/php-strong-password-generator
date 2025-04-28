@@ -1,15 +1,11 @@
 <?php
 
-// salvo la lunghezza del valore di input del form
-$lenghtpass = ($_GET["password"]);
-
-// stringa per creazione password
-$string = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789";
-
 // funzione per generare password casuale
-function createPassword($string, $lenghtpass)
+function createPassword($lenghtpass)
 {
 
+    // stringa per creazione password
+    $string = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789";
     $password = "";
 
     // ciclo fino alla lunghezza dei caratteri desiderati
@@ -21,5 +17,3 @@ function createPassword($string, $lenghtpass)
 
     return $password;
 }
-
-$password = createPassword($string, $lenghtpass);

@@ -1,5 +1,15 @@
 <?php
 
+// avvio una sessione
+session_start();
+
+// importo il file delle funzioni
+require_once "./functions.php";
+
+?>
+
+<?php
+
 // Dobbiamo creare una pagina che permetta ai nostri utenti di utilizzare il nostro generatore di password “sicure”.
 // L’esercizio è suddiviso in varie milestones ed è importante svilupparle nell’ordine corretto.
 
@@ -17,14 +27,6 @@
 // Gestire ulteriori parametri nel form per le password, dando la possibilità all’utente di specificare quali set di caratteri possono essere ammessi nella password da generare, tra lettere maiuscole, lettere minuscole, numeri e simboli.
 
 ?>
-
-<?php
-
-require_once "./functions.php";
-
-?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -44,7 +46,7 @@ require_once "./functions.php";
     </div>
     <div class="d-flex justify-content-center align-items-center">
         <div class="card p-4">
-            <form action="" method=GET>
+            <form action="./result.php" method=POST>
                 <div class="d-flex align-items-center justify-content-center gap-3 mb-4">
                     <label for="password">Lunghezza password</label>
                     <input type="number" name="password" id="password">
@@ -57,8 +59,6 @@ require_once "./functions.php";
             </form>
         </div>
     </div>
-
-    <h3 class="text-center m-3"><?php echo "La password generata è: " . $password ?></h3>
 
 </body>
 
