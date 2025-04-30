@@ -3,27 +3,13 @@
 // avvio una sessione
 session_start();
 
-// importo il file delle funzioni
-require_once "./functions.php";
-
-// se il form ha inviato i dati e non sono ne vuoti e ne minori di 0
-if (!empty($_POST["password"]) && intval($_POST["password"]) > 0) {
-    $lenghtpass = intval($_POST["password"]);
-
-    // verifica se i checkbox sono selezionati
-    $includeLetters = isset($_POST["letters"]);
-    $includeNumbers = isset($_POST["numbers"]);
-    $includeSymbols = isset($_POST["symbols"]);
-    // crea la password
-    $password = createPassword($lenghtpass, $includeLetters, $includeNumbers, $includeSymbols);
-
-    // salvo la password nella sessione
-    $_SESSION["password"] = $password;
-} else {
-    // se non c'è dato torno indietro
+// se la password non è settata, reindirizza all'index
+if (!isset($_SESSION["password"])) {
     header("Location: index.php");
     exit;
 }
+
+$password = $_SESSION["password"];
 
 ?>
 
@@ -70,7 +56,7 @@ if (!empty($_POST["password"]) && intval($_POST["password"]) > 0) {
 
     <div class="container-fluid">
         <h1 class="text-center m-4">Strong Password Generator</h1>
-        <h2 class="text-center m-4">La tua password generata è:</h2>
+        <h2 class="text-center m-4">La tua password generata è di : <?php echo $_SESSION["lenghtpass"]; ?> caratteri</h2>
         <h3 class="text-center m-3"><?php echo $_SESSION["password"]; ?></h3>
 
         <div class="d-flex justify-content-center">

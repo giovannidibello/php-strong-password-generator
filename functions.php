@@ -4,8 +4,7 @@
 function createPassword($lenghtpass, $includeLetters, $includeNumbers, $includeSymbols)
 {
 
-    // stringhe per creazione password
-    $string = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789!@#$%^&*()-_+=<>?{}[]|~";
+    // stringhe per creazione password    
     $stringLetters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     $stringNumbers = "123456789";
     $stringSymbols = "!@#$%^&*()-_+=<>?{}[]|~";
@@ -25,9 +24,10 @@ function createPassword($lenghtpass, $includeLetters, $includeNumbers, $includeS
     if ($includeSymbols) {
         // aggiungo simboli
         $charPool .= $stringSymbols;
-    } else {
-        // aggiungo lettere e numeri
-        $charPool .= $string;
+    }
+    if ($charPool === "") {
+        // aggiungo uso tutto i caratteri
+        $charPool .= $stringLetters . $stringNumbers . $stringSymbols;
     }
 
     // ciclo fino alla lunghezza dei caratteri desiderati

@@ -6,6 +6,27 @@ session_start();
 // importo il file delle funzioni
 require_once "./functions.php";
 
+// se il form ha inviato i dati e non sono ne vuoti e ne minori di 0
+if (!empty($_POST["password"]) && intval($_POST["password"]) > 0) {
+    $lenghtpass = intval($_POST["password"]);
+
+    // verifica se i checkbox sono selezionati
+    $includeLetters = isset($_POST["letters"]);
+    $includeNumbers = isset($_POST["numbers"]);
+    $includeSymbols = isset($_POST["symbols"]);
+    // crea la password
+    $password = createPassword($lenghtpass, $includeLetters, $includeNumbers, $includeSymbols);
+
+    // salvo la password nella sessione
+    $_SESSION["password"] = $password;
+    // salvo la lunghezza della password nella sessione
+    $_SESSION["lenghtpass"] = $lenghtpass;
+
+    // Redireziona alla pagina del risultato
+    header("Location: result.php");
+    exit;
+}
+
 ?>
 
 <?php
@@ -86,10 +107,10 @@ require_once "./functions.php";
     </div>
     <div class="d-flex justify-content-center align-items-center">
         <div class="card p-4">
-            <form action="./result.php" method=POST>
+            <form method=POST>
                 <div class="d-flex align-items-center justify-content-center gap-3 mb-4">
                     <label for="password">Lunghezza password</label>
-                    <input type="number" name="password" id="password">
+                    <input type="number" name="password" id="password" min="4" max="15">
                 </div>
 
                 <div class="d-flex justify-content-center align-items-center gap-5 mb-3">
